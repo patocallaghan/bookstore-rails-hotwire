@@ -35,7 +35,7 @@ booke = Book.create(title: "Best Of", author: author2, publisher: pub3, price: 1
 bookf = Book.create(title: "Anyway", author: author6, publisher: pub3, price: 19.99)
 
 50.times do
-  PublishingHouse.create(name: Faker::Book.publisher, discount: Faker::Number.between(1, 50))
+  PublishingHouse.create(name: Faker::Book.publisher, discount: Faker::Number.between(from: 1, to: 50))
 end
 
 100.times do
@@ -46,10 +46,10 @@ publishing_house_size = PublishingHouse.count
 author_size = Author.count
 
 3000.times do
-  publishing_house = PublishingHouse.find(Faker::Number.between(1, publishing_house_size))
-  author = Author.find(Faker::Number.between(1, author_size))
+  publishing_house = PublishingHouse.find(Faker::Number.between(from: 1, to: publishing_house_size))
+  author = Author.find(Faker::Number.between(from: 1, to: author_size))
 
   publisher = Random.rand(2) == 0 ? author : publishing_house
 
-  Book.create(title: Faker::Book.title, author: author, publisher: publisher, price: Faker::Number.decimal(2))
+  Book.create(title: Faker::Book.title, author: author, publisher: publisher, price: Faker::Number.decimal(l_digits: 2))
 end
