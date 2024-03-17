@@ -14,9 +14,8 @@
   <body>
     <%= render "shared/header" %>
     <main role="main" class="container mt-4">
-      {{outlet}}
+      <%= yield %>
     </main>
-    <%= yield %>
     <%= render "shared/footer" %>
   </body>
 </html>

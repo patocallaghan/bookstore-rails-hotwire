@@ -1,0 +1,15 @@
+<main role="main" class="container mt-4">
+  <h1>Libraries</h1>
+  <hr class="my-3">
+  <%= render partial: "show-links" %>
+  <hr class="my-3">
+  <h2>Edit library</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <%= render partial: "form" locals: { library: @library } %>
+    </div>
+    <div class="col-md-4">
+      <%= render partial: "library-summary" locals: { library: @library } %>
+    </div>
+  </div>
+</main>

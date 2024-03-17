@@ -10,12 +10,11 @@
     <div class="card-footer">
       Number of books:
       <span class="text-left badge">
-      <%= library.books.count %>
+        <%= library.books.count %>
       </span>
       <span class="pull-right">
-      <a href="/libraries/<%= library.id %>/edit" class="btn btn-success btn-xs">Edit</a>
-      <button class="btn btn-danger btn-xs" type="button">Delete
-      </button>
+        <%= link_to 'Edit', library_path(library), class: 'btn btn-success btn-xs' %>
+        <%= button_to 'Delete', library_path(library), method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-danger btn-xs'  %>
       </span>
     </div>
   </div>

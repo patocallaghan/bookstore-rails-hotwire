@@ -188,11 +188,11 @@ libraries = [
   }
 ]
 
-libraries.each do |library_data|
+libraries.each do |library|
   Library.create!(
-    name: library_data[:name],
-    address: library_data[:address],
-    phone: library_data[:phone]
+    name: library[:name],
+    address: library[:address],
+    phone: library[:phone]
   )
 end
 

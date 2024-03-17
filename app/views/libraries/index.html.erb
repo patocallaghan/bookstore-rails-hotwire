@@ -1,27 +1,47 @@
 <main role="main" class="container mt-4">
   <h1>Libraries</h1>
   <hr class="my-3">
-  <ul class="nav nav-pills    ">
-    <li class="nav-item  active">
-      <a href="/libraries" id="ember29" class="nav-link active ember-view">List all</a>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <%= link_to "List all", libraries_path, class: "nav-link active" %>
     </li>
-    <li class="nav-item  ">
-      <a href="/libraries/new" id="ember31" class="nav-link ember-view">Add new</a>
+    <li class="nav-item">
+      <%= link_to "Add new", new_library_path, class: "nav-link" %>
     </li>
   </ul>
   <hr class="my-3">
   <div class="btn-toolbar">
     <div class="btn-group mr-2">
-      <a href="/libraries" id="ember32" class="active ember-view btn btn-outline-info">All</a>
-      <a href="/libraries?limit=abc" id="ember33" class="ember-view btn btn-outline-info">Abc</a>
+      <%= link_to "All", libraries_path, class: "btn btn-outline-info #{'active' if params[:limit].nil?}" %>
+      <%= link_to "Abc", libraries_path(limit: "abc"), class: "btn btn-outline-info #{'active' if params[:limit].present?}"%>
     </div>
-    <input placeholder="Filter by library name" id="ember34" class="ember-text-field ember-view form-control col-md-5" type="text">
+    <% if params[:limit] == "abc" %>
+      <div class="btn-group">
+        <%= ('a'..'z').each do |letter| %>
+          <%= link_to letter.upcase, libraries_path(limit: "abc", letter: letter), class: "btn btn-outline-secondary" %> 
+        <% end %>
+      </div>
+    <% else %>
+      <%= form_with url: libraries_path, class: 'row flex-grow-1 ml-0', method: :get, local: true do |form| %>
+        <%= form.label :name, class: "sr-only" do %>Filter by library name<% end %>
+        <%= form.text_field :name, placeholder: "The name of the Library", class: "form-control col-md-5" %>
+        <%= form.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
   </div>
   <hr class="my-3">
   
   <div class="row row-cols-3">
-    <% @libraries.each do |library| %>
-      <%= render partial: "library", locals: { library: library } %>
+    <% if @libraries.any? %>
+      <% @libraries.each do |library| %>
+        <%= render partial: "library", locals: { library: library } %>
+      <% end %>
+    <% else %>
+      <div class="col-md-12 text-center">
+        <div class="alert alert-info">
+          Sorry, no result.
+        </div>
+      </div>
     <% end %>
   </div>
 </main>
