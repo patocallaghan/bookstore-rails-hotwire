@@ -4,7 +4,7 @@
   <%= render partial: "show-links" %>
   <hr class="my-3">
   <h2>Edit library</h2>
-  <div class="row">
+  <div class="row" data-controller="live-edit">
     <div class="col-md-6">
       <%= render partial: "form", locals: { library: @library } %>
     </div>

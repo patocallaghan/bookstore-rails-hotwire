@@ -1,18 +1,16 @@
 <div class="card h-100">
-  <div class="card-header">
+  <div class="card-header" data-live-edit-target="nameOutput">
     <%= library.name %>
   </div>
   <div class="card-body">
-    <p class="card-text">Address: <%= library.address %></p>
-    <p class="card-text">Phone: <%= library.phone %></p>
+    <p class="card-text">Address: <span data-live-edit-target="addressOutput"><%= library.address %></span></p>
+    <p class="card-text">Phone: <span data-live-edit-target="phoneOutput"><%= library.phone %></span></p>
   </div>
   <div class="card-footer">
     Number of books:
     <span class="text-left badge">
     <%= library.books.count %>
     </span>
-    <span class="pull-right">
-    <br>
-    </span>
+    <span class="pull-right"> <br> </span>
   </div>
 </div>
