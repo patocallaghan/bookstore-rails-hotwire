@@ -26,7 +26,7 @@ class LibrariesController < ApplicationController
   def update
     @library = Library.find(params[:id])
     @library.update!(library_params)
-    redirect_to library_path(@library)
+    redirect_to libraries_path
   end
 
   def destroy

@@ -1,14 +1,7 @@
 <main role="main" class="container mt-4">
   <h1>Libraries</h1>
   <hr class="my-3">
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <%= link_to "List all", libraries_path, class: "nav-link active" %>
-    </li>
-    <li class="nav-item">
-      <%= link_to "Add new", new_library_path, class: "nav-link" %>
-    </li>
-  </ul>
+  <%= render partial: "show-links" %>
   <hr class="my-3">
   <div class="btn-toolbar">
     <div class="btn-group mr-2">
@@ -33,9 +26,7 @@
   
   <div class="row row-cols-3">
     <% if @libraries.any? %>
-      <% @libraries.each do |library| %>
-        <%= render partial: "library", locals: { library: library } %>
-      <% end %>
+      <%= render collection: @libraries, partial: "library" %>
     <% else %>
       <div class="col-md-12 text-center">
         <div class="alert alert-info">
