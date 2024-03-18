@@ -17,7 +17,7 @@
     <% else %>
       <%= form_with url: libraries_path, class: 'row flex-grow-1 ml-0', method: :get, local: true do |form| %>
         <%= form.label :name, class: "sr-only" do %>Filter by library name<% end %>
-        <%= form.text_field :name, placeholder: "The name of the Library", class: "form-control col-md-5" %>
+        <%= form.text_field :name, value: params[:name], placeholder: "The name of the Library", class: "form-control col-md-5" %>
         <%= form.submit "Search", class: "btn btn-primary" %>
       <% end %>
     <% end %>
