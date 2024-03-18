@@ -1,24 +1,14 @@
-# README
+# BOOKSTORE RAILS HOTWIRE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application rebuilds the bookstore from the [YoEmber tutorial](https://yoember.com/) using Rails and Hotwire.
 
-Things you may want to cover:
+The original YoEmber demo application can be found at Live https://library-app.firebaseapp.com
 
-* Ruby version
+I fast-forwarded a lot of my work by basing the data modelling on an earlier iteration of YoEmber at https://github.com/zoltan-nz/bookstore-api. 
 
-* System dependencies
+## Install & setup
+```bash
+bundle install
+rails db:setup
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
