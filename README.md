@@ -12,3 +12,9 @@ bundle install
 rails db:setup
 ```
 
+## Dev
+```bash
+rails s
+```
+
+Visit http://localhost:3002/libraries
