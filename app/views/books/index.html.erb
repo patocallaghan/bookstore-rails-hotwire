@@ -1,0 +1,44 @@
+<main role="main" class="container mt-4">
+  <h1>Books</h1>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th class="vtop wider">
+          Author
+          <br><small class="small not-bold">(Click on the name for editing)</small>
+        </th>
+        <th>
+          Title
+          <br><small class="small not-bold">(Click on the title for editing)</small>
+        </th>
+        <th class="vtop">Publisher</th>
+        <th class="vtop">
+          Library
+          <br><small class="small not-bold">(Click on the name for editing)</small>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td>
+            <span role="button"><%= book.author.name %></span>
+          </td>
+          <td>
+            <span role="button"><%= book.title %></span>
+          </td>
+          <td><%= book.publisher.name %></td>
+          <td>
+            <ul>
+              <% book.libraries.each do |library| %>
+                <li>
+                  <span role="button"><%= library.name %></span>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>
