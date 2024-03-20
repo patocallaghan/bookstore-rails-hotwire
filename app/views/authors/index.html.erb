@@ -15,7 +15,7 @@
         <tr>
           <td>
             <turbo-frame id="author-<%= author.id %>">
-              <%= link_to edit_author_path(author), method: :get do %>
+              <%= link_to edit_author_path(author), method: :get, class: "text-body" do %>
                 <span role="button"><%= author.name %></span>
               <% end %>
             </turbo-frame>
