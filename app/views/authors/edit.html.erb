@@ -1,0 +1,11 @@
+<turbo-frame id="author-<%= @author.id %>">
+	<%= form_with model: @author, class: "form-inline" do |form| %>
+		<div class="input-group">
+			<%= form.text_field :name, placeholder: "Author name", class: "form-control" %>
+			<div class="input-group-btn">
+					<%= form.button class: "btn btn-success" do %>Save<% end %>
+					<%= link_to "Cancel", authors_path, class: "btn btn-danger" %>
+			</div>
+		</div>
+	<% end %>
+</turbo-frame>

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "bookstore#index"
   resources :libraries
+  resources :authors
 end

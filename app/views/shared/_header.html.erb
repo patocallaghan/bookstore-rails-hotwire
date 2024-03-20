@@ -15,11 +15,11 @@
           <li class="nav-item  ">
             <%= link_to 'Home', libraries_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item  active">
+          <li class="nav-item">
             <%= link_to 'Libraries', libraries_path, class: "nav-link #{'active' if current_page?(libraries_path)}" %>
           </li>
-          <li class="nav-item  ">
-            <a href="/authors" id="ember14" class="nav-link">Authors</a>
+          <li class="nav-item">
+            <%= link_to 'Authors', authors_path, class: "nav-link #{'active' if current_page?(authors_path)}" %>
           </li>
           <li class="nav-item  ">
             <a href="/books" id="ember16" class="nav-link">Books</a>
@@ -36,8 +36,6 @@
             <a href="#" class="dropdown-toggle nav-link" aria-expanded="false" role="button">
             Admin <span class="caret"></span>
             </a>
-            <!---->
-            <!---->
           </li>
         </ul>
       </div>
